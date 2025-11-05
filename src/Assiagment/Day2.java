@@ -2,6 +2,15 @@ package Assiagment;
 
 import java.util.Arrays;
 
+/*
+*6. Java Program to Print the Largest Element in an Integer Array without Using a Sorting Algorithm
+*7. Java Program to Print the 2nd Largest Element in an Integer Array without Using a Sorting Algorithm
+*8. Java Program to Print the 3rd Largest Element in an Integer Array without Using a Sorting Algorithm
+*9. Java Program to Sort Elements in an Array Using Bubble Sort
+10. Java Program to Find the Total Number of Punctuations Present in a String
+ */
+
+
 public class Day2 {
     public static void main(String[] args) {
         int[] arr= {5,3,1,4,8,2,6};

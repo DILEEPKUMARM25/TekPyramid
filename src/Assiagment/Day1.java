@@ -4,6 +4,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 
+
+
+/*
+ *1. Java Program to Find the Frequency of Elements in an Array
+
+ *2. Java Program to Left Rotate the Elements in an Array by 2 Positions
+
+ *3. Java Program to Right Rotate the Elements in an Array by 2 Positions
+
+ *4. Java Program to Print the Duplicates from an Array
+
+ *5. Java Program to Remove the Duplicates from an Array
+
+ */
+
+
 public class Day1 {
     public static void main(String[] args) {
         feq();
@@ -119,6 +135,7 @@ public class Day1 {
         ArrayList list=new ArrayList();
         for(int a:arr) {
             list.add(a);
+            //sdf
         }
         for(int i=0;i<2;i++) {
             Object a1 = list.get(list.size()-1);
