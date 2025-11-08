@@ -57,7 +57,7 @@ public class Day2 {
                 third=secound;
                 secound=first;
                 first=arr[i];
-            }git
+            }
             else if(arr[i]>secound && arr[i]!=first) {
                 third=secound;
                 secound=arr[i];
