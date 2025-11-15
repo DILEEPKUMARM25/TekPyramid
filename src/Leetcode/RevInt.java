@@ -1,5 +1,7 @@
 package Leetcode;
 
+import java.util.Collection;
+
 public class RevInt {
 
         public static void main(String[] args) {

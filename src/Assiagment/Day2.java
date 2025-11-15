@@ -66,9 +66,9 @@ public class Day2 {
                 third=arr[i];
             }
         }
-        System.out.println("the first Lorgest element - "+ first);
-        System.out.println("the secound Lorgest element - "+ secound);
-        System.out.println("the third Lorgest element - "+ third);
+        System.out.println("the first Lorgest element - " + first);
+        System.out.println("the secound Lorgest element - " + secound);
+        System.out.println("the third Lorgest element - "  + third);
 
     }
     private static void maxsecond(int[] arr) {

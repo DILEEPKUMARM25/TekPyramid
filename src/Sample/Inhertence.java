@@ -1,26 +1,25 @@
 package Sample;
 
-class aa{
-<<<<<<< HEAD
-    private   int a=10;
-=======
-    static  int a=10;
->>>>>>> 3bea27e80acba3245c72fb6e1110339038fc0ff9
-    static  void a(){
-        System.out.println("aaa");
+public class Inhertence  {
+int i;
+    Inhertence(){
+    try{
+        i=1/0;
+        add();
+        System.out.println("hello");
+    }
+    catch(ArithmeticException e){
+        System.out.println("Arithmetic Exception");
+    }
+        System.out.println("hiui");
     }
 
-}
-
-public class Inhertence extends aa {
-
     public static void main(String[] args) {
-<<<<<<< HEAD
-        aa ab=new Inhertence();
 
-=======
-        System.out.println(a);
-        a();
->>>>>>> 3bea27e80acba3245c72fb6e1110339038fc0ff9
+        Inhertence i=new Inhertence();
+
+    }
+    static void add(){
+        System.out.println("Inhertence added");
     }
 }
