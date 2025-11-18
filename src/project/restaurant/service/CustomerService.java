@@ -11,11 +11,22 @@ public class CustomerService {
     private HashMap<Integer, Customer> customers = new HashMap<>();
 
     public void addCustomer(Customer customer) throws DuplicateEntryException {
+
+        // Validate phone number
+        String phone = customer.getPhone();  // example getter
+
+        if (phone == null || phone.length() != 10 || !phone.matches("\\d{10}")) {
+            throw new DuplicateEntryException("Phone number must be exactly 10 digits!");
+        }
+
+        // Check duplicate customer ID
         if (customers.containsKey(customer.getId())) {
             throw new DuplicateEntryException("Customer with ID already exists!");
         }
+
         customers.put(customer.getId(), customer);
     }
+
 
     public HashMap<Integer, Customer> getAllCustomers() {
         return customers;
