@@ -78,17 +78,25 @@ public class StudentMain {
                         Collectors.toSet()
                 ));
 
-        Map<String, Set<Student>> finalTask1 = grouped.entrySet().stream()
+        System.out.println(grouped);
+
+
+        Map<String, List<Student>> finalTask1 = grouped.entrySet().stream()
                 .filter(entry -> {
                     double avgGPA = entry.getValue().stream()
                             .mapToDouble(Student::getGpa).average().orElse(0);
                     return entry.getValue().size() > 5 && avgGPA > 3.0;
                 })
-                .peek(entry -> entry.getValue().stream()
-                        .sorted(Comparator.comparingDouble(Student::getGpa)
-                                .thenComparing(Comparator.comparingInt(Student::getAge).reversed()))
-                        .forEach(System.out::println))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        entry -> entry.getValue().stream()
+                                .sorted(
+                                        Comparator.comparingDouble(Student::getGpa)
+                                                .thenComparing(Comparator.comparingInt(Student::getAge).reversed())
+                                )
+                                .collect(Collectors.toList())
+                ));
+
 
         System.out.println("\nResult Task 1 Map: " + finalTask1);
 
@@ -127,7 +135,7 @@ public class StudentMain {
 //        Filter out all students who have joined in the last 3 years and have a major in Mathematics, but have a GPA below 3.0 and are on academic probation.
 //                Calculate the sum of the GPAs of the remaining students, but only for those who have an age above 22 and a GPA above the average GPA.
 //                Find the average age of the remaining students, but only if their department has more than 10 students and an average GPA above 3.5.
-//                Calculate the factorial of the average age, but only if the total years of enrollment of all students is greater than 30 and the average GPA is below 3.9.
+//                Calculate the factor  ial of the average age, but only if the total years of enrollment of all students is greater than 30 and the average GPA is below 3.9.
 
         List<Student> filteredTask3 = studentSet.stream()
                 .filter(s -> !(s.getYearsOfEnrollment() <= 3 &&
@@ -147,6 +155,7 @@ public class StudentMain {
 
         Map<String, List<Student>> deptGroup = filteredTask3.stream()
                 .collect(Collectors.groupingBy(Student::getMajor));
+//        System.out.println("Task----------3-------"+deptGroup);
 
         deptGroup.forEach((dept, list) -> {
             double avg = list.stream().mapToDouble(Student::getGpa).average().orElse(0);
@@ -164,5 +173,5 @@ public class StudentMain {
                 }
             }
         });
-    }
+   }
 }
