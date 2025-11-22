@@ -5,7 +5,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
- class Customer {
+
+
+ class  Customer {
     private String id;
     private String name;
     private String country;
@@ -65,80 +67,11 @@ public class CustomerMain {
         customerMap.put("C10", new Customer("C10", "Jenny", "India", 33, 9, 13000, 4, 60));
         customerMap.put("C11", new Customer("C11", "Zara", "India", 31, 5, 12500, 9, 70));
 
-//        Implement a program that reads a map of Customer objects from the user and performs the following operations:
-//        Filter out all customers who have a balance less than the average balance of all customers.
-//        Calculate the total years of membership of the remaining customers.
-//        Find the customer with the highest years of membership and return their details.
-        System.out.println("=========== TASK 1 ===========");
-        OptionalDouble average = customerMap.values().stream()
-                .mapToDouble(Customer::getBalance).average();
+       /* Write a program that reads a map of Customer objects from the user and performs the following operations:
+        Filter out all customers who have a balance greater than 10000 and are from the United States, but have joined in the last 5 years.
+                Calculate the square root of the sum of the balances of the remaining customers, but only for those who have a loyalty score greater than 8.
+        Find the customer with the closest age to the square root, but only if their age is less than 40.*/
 
-//// Extract the actual value
-        double avg = average.orElse(0);
-//
-//// Filter customers with balance >= average
-        List<Customer> filtered = customerMap.values().stream()
-                .filter(c -> c.getBalance() >= avg)
-                .toList();
-//
-//// Calculate total years of membership
-        int totalYears = filtered.stream()
-                .mapToInt(Customer::getYearsOfMembership)
-                .sum();
-//
-//// Find customer with highest years of membership
-        Customer highestMembership = filtered.stream()
-                .max(Comparator.comparingInt(Customer::getYearsOfMembership))
-                .orElse(null);
-        System.out.println("The Average balance of all customers: "+avg);
-        System.out.println("The filtered:" +filtered);
-        System.out.println("total years of membership : "+totalYears);
-        System.out.println("customer with highest years of membership: "+highestMembership);
-
-//        Create a program that takes a map of Customer objects as input and performs the following operations:
-//        Filter out all customers who have joined in the last 3 years and have a loyalty score less than 4, but have a balance between 2000 and 5000.
-//        Calculate the sum of the balances of the remaining customers, but only for those who have an even age.
-//        Find the average age of the remaining customers, but only if their country has more than 10 customers.
-        System.out.println("=========== TASK 2 ===========");
-        List<Customer> filteredList = customerMap.values().stream()
-                .filter(customer -> !(customer.getYearsOfMembership() > 3
-                        && customer.getLoyaltyScore() < 4
-                        && customer.getBalance() >= 2000
-                        && customer.getBalance() <= 5000))
-                .toList();
-
-        System.out.println("\nFiltered Customers (After Removing those with <4 Loyalty & Balance 2000-5000 & <3 yrs):");
-        filteredList.forEach(c -> System.out.println(c.getName() + " - " + c.getCountry()));
-
-        // Step 2: Sum balances of customers with even age
-        double sumBalances = filteredList.stream()
-                .filter(c -> c.getAge() % 2 == 0)
-                .mapToDouble(Customer::getBalance)
-                .sum();
-
-        System.out.println("\nSum of balances of customers with even age: " + sumBalances);
-
-        // Step 3: Count customers by country
-        Map<String, Long> countryCount = filteredList.stream()
-                .collect(Collectors.groupingBy(Customer::getCountry, Collectors.counting()));
-
-        System.out.println("\nCustomer count by country:");
-        countryCount.forEach((country, count) ->
-                System.out.println(country + " → " + count));
-
-        // Step 4: Find average age for countries having more than 10 customers
-        System.out.println("\nAverage Age for Countries with > 10 Customers:");
-        countryCount.entrySet().stream()
-                .filter(entry -> entry.getValue() > 10)
-                .forEach(entry -> {
-                    String country = entry.getKey();
-                    double avgAge = filteredList.stream()
-                            .filter(c -> c.getCountry().equals(country))
-                            .mapToInt(Customer::getAge)
-                            .average()
-                            .orElse(0);
-                    System.out.println(country + " → Average Age: " + avgAge);
-                });
 
 
     }

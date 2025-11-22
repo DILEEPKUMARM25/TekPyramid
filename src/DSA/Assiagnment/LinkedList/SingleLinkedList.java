@@ -1,4 +1,4 @@
-package DSA.Assiagnment;
+package DSA.Assiagnment.LinkedList;
 
 public class SingleLinkedList {
     public static void main(String[] args) {
