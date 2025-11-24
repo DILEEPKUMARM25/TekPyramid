@@ -25,7 +25,7 @@ public class QueueLinkedList {
             }
 
             rear.next = newNode;
-            rear = newNode;
+            rear =  newNode;
         }
 
         // DEQUEUE operation
