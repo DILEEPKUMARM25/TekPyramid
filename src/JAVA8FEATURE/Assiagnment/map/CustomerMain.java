@@ -51,7 +51,7 @@ import java.util.stream.Stream;
 }
 
 
-public class CustomerMain {
+public class   CustomerMain {
     public static void main(String[] args) {
 
         Map<String, Customer> customerMap = new HashMap<>();
